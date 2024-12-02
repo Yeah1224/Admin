@@ -15,7 +15,7 @@ const CategoryList = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/admin/categories');
+            const response = await fetch('http://localhost:8080/api/admin/categories');
             const data = await response.json();
             setCategories(data);
         } catch (error) {
@@ -36,7 +36,7 @@ const CategoryList = () => {
     const handleDeleteCategory = async (id) => {
         if (window.confirm('Bạn có chắc chắn muốn xóa danh mục này không?')) {
             try {
-                await fetch(`http://localhost:5000/api/admin/categories/${id}`, {
+                await fetch(`http://localhost:8080/api/admin/categories/${id}`, {
                     method: 'DELETE',
                 });
                 setCategories(categories.filter((category) => category.cate_id !== id));
@@ -50,7 +50,7 @@ const CategoryList = () => {
         if (category.cate_id) {
             // Cập nhật
             try {
-                const response = await fetch(`http://localhost:5000/api/admin/categories/${category.cate_id}`, {
+                const response = await fetch(`http://localhost:8080/api/admin/categories/${category.cate_id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const CategoryList = () => {
              // Thêm mới
              try {
                 const newCategory = { cate_id: `cate-${categories.length + 1}`, cate_name: categories.cate_name };
-                const response = await fetch('http://localhost:5000/api/admin/categories', {
+                const response = await fetch('http://localhost:8080/api/admin/categories', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -15,9 +15,9 @@ const ProductList = () => {
 
     const fetchProductsAndCategories = async () => {
         const [productResponse, brandResponse, categoryResponse] = await Promise.all([
-            fetch('http://localhost:5000/api/admin/products'),
-            fetch('http://localhost:5000/api/admin/brands'),
-            fetch('http://localhost:5000/api/admin/categories'),
+            fetch('http://localhost:8080/api/admin/products'),
+            fetch('http://localhost:8080/api/admin/brands'),
+            fetch('http://localhost:8080/api/admin/categories'),
         ]);
     
         const [productsData, brandsData, categoriesData] = await Promise.all([
@@ -41,7 +41,7 @@ const ProductList = () => {
 
     const handleDelete = async (productId) => {
         if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
-            const response = await fetch(`http://localhost:5000/api/admin/products/${productId}`, {
+            const response = await fetch(`http://localhost:8080/api/admin/products/${productId}`, {
                 method: 'DELETE',
             });
             if (response.ok) {

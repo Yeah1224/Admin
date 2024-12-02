@@ -15,7 +15,7 @@ const BrandList = () => {
 
     const fetchBrands = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/admin/brands');
+            const response = await fetch('http://localhost:8080/api/admin/brands');
             const data = await response.json();
             setBrands(data);
         } catch (error) {

@@ -14,7 +14,7 @@ const UserList = () => {
     const fetchUsers = async () => {
         try {
             setLoading(true);
-            const response = await axios.get('http://localhost:5000/api/admin/user');
+            const response = await axios.get('http://localhost:8080/api/admin/user');
             setUsers(response.data);
         } catch (error) {
             setError(error.message || 'Đã xảy ra lỗi khi tải dữ liệu');
@@ -28,7 +28,7 @@ const UserList = () => {
         if (!confirmDelete) return;
 
         try {
-            await axios.delete(`http://localhost:5000/api/admin/user/${id}`);
+            await axios.delete(`http://localhost:8080/api/admin/user/${id}`);
             setUsers(users.filter((user) => user.acc_id !== id)); // Cập nhật danh sách sau khi xóa
             alert('Xóa người dùng thành công!');
         } catch (error) {

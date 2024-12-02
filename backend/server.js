@@ -8,7 +8,7 @@ const productsRoutes = require('./routes/admin/products');
 const userRoutes = require('./routes/admin/user')
 const orderRoutes = require('./routes/admin/order')
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(bodyParser.json());
